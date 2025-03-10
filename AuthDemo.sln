@@ -1,9 +1,15 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
-VisualStudioVersion = 17.12.35527.113 d17.12
+VisualStudioVersion = 17.12.35527.113
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BlazorWebApp", "BlazorWebApp\BlazorWebApp.csproj", "{BB96B3F2-C24A-402F-8C9A-487446680240}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BlazorHybrid", "BlazorHybrid\BlazorHybrid\BlazorHybrid.csproj", "{7006D31E-37E7-49BF-AD0C-2BCE47579921}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BlazorHybrid.Shared", "BlazorHybrid\BlazorHybrid.Shared\BlazorHybrid.Shared.csproj", "{6DC1F173-B6BC-43ED-8EA6-95F5110BC6BF}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BlazorHybrid.Web", "BlazorHybrid\BlazorHybrid.Web\BlazorHybrid.Web.csproj", "{3F9FFF1A-C520-453F-AAA5-DE50624D5334}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,6 +21,19 @@ Global
 		{BB96B3F2-C24A-402F-8C9A-487446680240}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{BB96B3F2-C24A-402F-8C9A-487446680240}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{BB96B3F2-C24A-402F-8C9A-487446680240}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7006D31E-37E7-49BF-AD0C-2BCE47579921}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7006D31E-37E7-49BF-AD0C-2BCE47579921}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7006D31E-37E7-49BF-AD0C-2BCE47579921}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
+		{7006D31E-37E7-49BF-AD0C-2BCE47579921}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7006D31E-37E7-49BF-AD0C-2BCE47579921}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6DC1F173-B6BC-43ED-8EA6-95F5110BC6BF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6DC1F173-B6BC-43ED-8EA6-95F5110BC6BF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6DC1F173-B6BC-43ED-8EA6-95F5110BC6BF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6DC1F173-B6BC-43ED-8EA6-95F5110BC6BF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3F9FFF1A-C520-453F-AAA5-DE50624D5334}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3F9FFF1A-C520-453F-AAA5-DE50624D5334}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3F9FFF1A-C520-453F-AAA5-DE50624D5334}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3F9FFF1A-C520-453F-AAA5-DE50624D5334}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

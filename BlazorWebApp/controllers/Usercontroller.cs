@@ -25,12 +25,16 @@ namespace BlazorWebApp.controllers
 
         [HttpPost]
         [Route("Login")]
-        public async Task<IActionResult> LoginUser(UserLoginModel model)
+        public async Task<ApiResponse> LoginUser(UserLoginModel model)
         {
+            ApiResponse response = new ApiResponse();
             var result = await _userRepository.LoginUser(model);
             var tokenProperty = result.Result.GetType().GetProperty("Token");
             var token = tokenProperty?.GetValue(result.Result)?.ToString();
-            return Ok(token);
+            response.Message = "Token fetched successfully";
+            response.Result = token;
+            response.IsSuccess = true;
+            return response;
         }
     }
 }

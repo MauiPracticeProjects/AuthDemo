@@ -1,0 +1,60 @@
+﻿@page "/reg"
+@inject RegistrationService RegistrationService
+@using Microsoft.AspNetCore.Components.Forms
+
+<h3>Register</h3>
+
+<EditForm Model="@user" OnValidSubmit="HandleRegistration">
+    <DataAnnotationsValidator />
+    <ValidationSummary />
+
+    <div class="form-group">
+        <label for="username">Username</label>
+        <InputText id="username" class="form-control" @bind-Value="user.Username" />
+    </div>
+
+    <div class="form-group">
+        <label for="email">Email</label>
+        <InputText id="email" class="form-control" @bind-Value="user.Email" />
+    </div>
+
+    <div class="form-group">
+        <label for="password">Password</label>
+        <InputText id="password" type="password" class="form-control" @bind-Value="user.PasswordHash" />
+    </div>
+
+    <div class="form-group">
+        <button type="submit" class="btn btn-primary">Register</button>
+    </div>
+</EditForm>
+
+@if (isSuccess)
+{
+    <p>Registration successful!</p>
+}
+else if (isError)
+{
+    <p>Error during registration. Please try again.</p>
+}
+
+@code {
+    private User user = new User();
+    private bool isSuccess = false;
+    private bool isError = false;
+
+    private async Task HandleRegistration()
+    {
+        isSuccess = false;
+        isError = false;
+        var success = await RegistrationService.RegisterUser(user);
+
+        if (success)
+        {
+            isSuccess = true;
+        }
+        else
+        {
+            isError = true;
+        }
+    }
+}

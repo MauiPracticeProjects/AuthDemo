@@ -1,0 +1,68 @@
+﻿@page "/"
+@inject LoginService LoginService
+@using Microsoft.AspNetCore.Components.Forms
+@using System.Net.Http.Headers
+
+<h3>Login</h3>
+
+<EditForm Model="@loginModel" OnValidSubmit="HandleLogin">
+    <DataAnnotationsValidator />
+    <ValidationSummary />
+    <div class="form-group">
+        <label for="username">Username</label>
+        <InputText id="username" class="form-control" @bind-Value="loginModel.Email" />
+    </div>
+    <div class="form-group">
+        <label for="password">Password</label>
+        <InputText id="password" type="password" class="form-control" @bind-Value="loginModel.PasswordHash" />
+    </div>
+    <button type="submit" class="btn btn-primary">Login</button>
+</EditForm>
+@if (success)
+{
+    <p>Login successful!</p>
+    <p>Token: @token</p>
+    <button class="btn btn-secondary" @onclick="FetchProtectedData">Get Protected Data</button>
+
+    @if (!string.IsNullOrEmpty(protectedData))
+    {
+        <p>Protected Data: @protectedData</p>
+    }
+}
+else if (isError)
+{
+    <p>Error during login. Please check your credentials.</p>
+}
+@code {
+    private UserModel loginModel = new UserModel();
+    private bool success;
+    private bool isError;
+    private string token = string.Empty;
+    private string protectedData = string.Empty;
+
+    private async Task HandleLogin()
+    {
+        token = await LoginService.LoginUser(loginModel);
+
+        if (!string.IsNullOrEmpty(token))
+        {
+            success = true;
+        }
+        else
+        {
+            isError = true;
+        }
+    }
+
+    private async Task FetchProtectedData()
+    {
+        // Implementation to fetch protected data
+        protectedData = await LoginService.GetProtectedData(token);
+    }
+
+    public class UserModel
+    {
+        public string Email { get; set; }
+        public string PasswordHash { get; set; }
+    }
+}
